@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
         unique: true,
         lowercase: true,
         validate: [validator.isEmail, 'please provide a valid email']
+    },
+    GPA:{
+        type: Number,
+        default: 0
     }
 })
 
