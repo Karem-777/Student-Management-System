@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const userSchema = mongoose.Schema({
+const studentSchema = mongoose.Schema({
     ID:{
         type: String,
         required: [true, 'please tell us your ID']
@@ -17,11 +17,19 @@ const userSchema = mongoose.Schema({
         lowercase: true,
         validate: [validator.isEmail, 'please provide a valid email']
     },
-    GPA:{
+    CGPA:{
         type: Number,
         default: 0
+    },
+    status:{
+        type: String,
+        enum: {
+        values: ['currentStudent', 'GraduteStudent'],
+        message: 'status is either: currentStudent or GraduteStudent'
+        },
+        default: 'currentStudent'
     }
 })
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Student = mongoose.model('User', studentSchema);
+module.exports = Student;
