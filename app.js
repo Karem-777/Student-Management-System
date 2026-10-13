@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');   
+const mongoose = require('mongoose');  
+const studentRoutes = require('./routes/studentRoutes')
 
 dotenv.config({path:'./config.env'});
 
@@ -15,6 +16,8 @@ mongoose.connect(DB_A).then(con => {
 app.get('/', (req,res)=>{
     res.send('server is runing...');
 })
+
+app.use('/api/v1/students',studentRoutes);
 
 const port = process.env.PORT || 3000;
 
