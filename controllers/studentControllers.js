@@ -102,7 +102,10 @@ exports.searchByID = async (req,res) => {
 
 exports.update = async (req,res) => {
     try{
-        const updatedStudent = await Student.findByIdAndUpdate(req.body.ID,{CGPA: req.body.CGPA});
+        const updatedStudent = await Student.findByIdAndUpdate(req.params.id,{CGPA: req.body.CGPA}, {
+    new: true,
+    runValidators: true
+    });
 
         if (!updatedStudent){
             return res.status(404).json({
@@ -128,7 +131,7 @@ exports.update = async (req,res) => {
 
 exports.deleteStudent = async(req,res,next) => {
     try{
-    const student = await Student.findByIdAndDelete(req.params.ID)
+    const student = await Student.findByIdAndDelete(req.params.id)
 
     if (!student){
         return res.status(404).json({

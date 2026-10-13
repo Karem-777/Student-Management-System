@@ -1,69 +1,41 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const searchForm = document.getElementById('searchForm');
-    const messageEl = document.getElementById('message');
-    const searchBtn = document.getElementById('searchBtn');
-    const resultArea = document.getElementById('resultArea');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🎓</div>
+            <h1>Student Management</h1>
+            <p>Search for a student by ID</p>
+        </div>
 
-    if (!searchForm) return;
+        <form id="searchForm">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="studentID"
+                    placeholder="Enter Student ID..."
+                    required
+                    autofocus
+                >
+                <button type="submit" id="searchBtn">Search</button>
+            </div>
+        </form>
 
-    searchForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        <p id="message" role="status"></p>
 
-        const studentID = document.getElementById('studentID').value.trim();
-        messageEl.textContent = '';
-        messageEl.className = '';
-        resultArea.innerHTML = '';
+        <div id="resultArea"></div>
 
-        if (!studentID) {
-            messageEl.textContent = 'Please enter a student ID.';
-            messageEl.classList.add('error');
-            return;
-        }
+        <div class="footer-link">
+            <a href="/create">+ Add New Student</a>
+        </div>
+    </div>
 
-        searchBtn.disabled = true;
-        searchBtn.textContent = 'Searching...';
-
-        try {
-            const res = await fetch('/api/v1/students/search', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ ID: studentID })
-            });
-            const data = await res.json();
-            console.log("DATA->>",data)
-
-            if (!res.ok) {
-                throw new Error(data.message || 'Student not found');
-            }
-
-            const student = data.data.student;
-            const statusClass = student.status === 'currentStudent' ? 'current' : 'graduate';
-            const statusText = student.status === 'currentStudent' ? 'Current' : 'Graduate';
-
-            resultArea.innerHTML = `
-                <a href="/student/${student._id}" class="student-card">
-                    <div class="card-header">
-                        <span class="student-id">ID: ${student.ID}</span>
-                        <span class="status ${statusClass}">${statusText}</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>${student.name}</h3>
-                        <p class="email">📧 ${student.email}</p>
-                        <p class="cgpa">CGPA: <strong>${student.CGPA}</strong></p>
-                    </div>
-                    <div class="card-footer">
-                        Click to view full profile →
-                    </div>
-                </a>
-            `;
-        } catch (err) {
-            messageEl.textContent = err.message || 'Student not found.';
-            messageEl.classList.add('error');
-        } finally {
-            searchBtn.disabled = false;
-            searchBtn.textContent = 'Search';
-        }
-    });
-});
+    <script src="/js/index.js"></script>
+</body>
+</html>

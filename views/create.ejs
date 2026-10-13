@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/css/create.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Search</a>
+
+        <div class="header">
+            <div class="icon">➕</div>
+            <h1>Add New Student</h1>
+            <p>Fill in the details to create a student</p>
+        </div>
+
+        <form id="createForm">
+            <div class="form-group">
+                <label for="ID">Student ID</label>
+                <input type="text" id="ID" placeholder="e.g. 1001" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="e.g. Kareem Mahrous" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="e.g. karem@gmail.com" required>
+            </div>
+            <button type="submit" id="createBtn">Create Student</button>
+            <p id="message" role="status"></p>
+        </form>
+    </div>
+
+    <script src="/js/create.js"></script>
+</body>
+</html>

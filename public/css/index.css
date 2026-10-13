@@ -187,3 +187,20 @@ body {
     font-weight: 600;
     text-align: right;
 }
+.footer-link {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #edf2f7;
+}
+
+.footer-link a {
+    color: #3478f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}

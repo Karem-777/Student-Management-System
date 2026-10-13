@@ -139,3 +139,80 @@ body {
 .error {
     color: #d93025;
 }
+.success {
+    color: #0a7b34;
+}
+
+.actions-section {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #edf2f7;
+}
+
+.actions-section h3 {
+    color: #17243a;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.update-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.update-form input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1px solid #d8dfeb;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.update-form input:focus {
+    border-color: #3478f6;
+}
+
+.update-form button {
+    padding: 11px 18px;
+    background: #3478f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.update-form button:hover {
+    background: #245ed0;
+}
+
+.update-form button:disabled {
+    background: #a0b4e0;
+    cursor: not-allowed;
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 12px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.delete-btn:disabled {
+    background: #e8a0a0;
+    cursor: not-allowed;
+}
