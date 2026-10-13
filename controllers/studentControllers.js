@@ -102,7 +102,7 @@ exports.searchByID = async (req,res) => {
 
 exports.update = async (req,res) => {
     try{
-        const updatedStudent = await Student.findByIdAndUpdate(req.params.id,{CGPA: req.body.CGPA}, {
+        const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body , {
     new: true,
     runValidators: true
     });

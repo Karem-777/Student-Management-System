@@ -139,6 +139,7 @@ body {
 .error {
     color: #d93025;
 }
+
 .success {
     color: #0a7b34;
 }
@@ -214,5 +215,58 @@ body {
 
 .delete-btn:disabled {
     background: #e8a0a0;
+    cursor: not-allowed;
+}
+
+/* Full Update Form */
+.full-update-form .form-group {
+    margin-bottom: 12px;
+}
+
+.full-update-form label {
+    display: block;
+    color: #526078;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.full-update-form input,
+.full-update-form select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #d8dfeb;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+.full-update-form input:focus,
+.full-update-form select:focus {
+    border-color: #3478f6;
+}
+
+.full-update-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #3478f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    transition: background 0.3s;
+}
+
+.full-update-form button[type="submit"]:hover {
+    background: #245ed0;
+}
+
+.full-update-form button[type="submit"]:disabled {
+    background: #a0b4e0;
     cursor: not-allowed;
 }
