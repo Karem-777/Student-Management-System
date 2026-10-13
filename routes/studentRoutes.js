@@ -14,4 +14,8 @@ router
     .patch(studentControllers.update)
     .delete(studentControllers.deleteStudent);
 
+router
+    .route('/search')
+    .post(studentControllers.searchByID);
+
 module.exports = router;

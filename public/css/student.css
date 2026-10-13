@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #f3f6fb;
+    padding: 40px 20px;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 30px 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.back-link {
+    display: inline-block;
+    color: #3478f6;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.loading {
+    text-align: center;
+    color: #758198;
+    padding: 40px 0;
+    font-size: 15px;
+}
+
+/* Profile Card */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e7efff;
+    color: #3478f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.profile-info h2 {
+    color: #17243a;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.profile-info .student-id {
+    color: #758198;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.status {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status.current {
+    background: #c6f6d5;
+    color: #276749;
+}
+
+.status.graduate {
+    background: #bee3f8;
+    color: #2b6cb0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row .label {
+    color: #758198;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.detail-row .value {
+    color: #17243a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cgpa-value {
+    color: #3478f6;
+    font-size: 16px;
+}
+
+.mono {
+    font-family: monospace;
+    font-size: 12px;
+    color: #758198;
+}
+
+#message {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 13px;
+    min-height: 20px;
+}
+
+.error {
+    color: #d93025;
+}

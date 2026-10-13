@@ -27,9 +27,10 @@ exports.getAll = async (req,res) => {
         const students = await Student.find();
 
         if (!students){
-        const error = new Error('students not found');
-        error.statusCode = 404;
-        return next(error);
+            return res.status(404).json({
+                status: 'fail',
+                message: 'students not found'
+            });
         }
         
         res.status(200).json({
@@ -49,12 +50,39 @@ exports.getAll = async (req,res) => {
 
 exports.getOne = async (req,res) => {
     try{
-        const student = await Student.findById(req.body.ID);
+        const student = await Student.findById(req.params.id);
 
         if (!student){
-        const error = new Error('Student not found');
-        error.statusCode = 404;
-        return next(error);
+        return res.status(404).json({
+                status: 'fail',
+                message: 'Student not found'
+            });
+        }
+        
+        res.status(200).json({
+        status:'success',
+        data:{
+            student
+        }
+    });
+    }catch(err){
+        console.log('Error: ',err);
+        res.status(500).json({
+        status:'fail',
+        message: `there is an Error: ${err}`
+    });
+    }
+}
+
+exports.searchByID = async (req,res) => {
+    try{
+        const student = await Student.findOne({ID: req.body.ID.trim()});
+
+        if (!student){
+        return res.status(404).json({
+                status: 'fail',
+                message: 'Student not found'
+            });
         }
         
         res.status(200).json({
@@ -74,12 +102,13 @@ exports.getOne = async (req,res) => {
 
 exports.update = async (req,res) => {
     try{
-        const updatedStudent = await Student.findByIDAndUpdate(req.body.ID,{CGPA: req.body.CGPA});
+        const updatedStudent = await Student.findByIdAndUpdate(req.body.ID,{CGPA: req.body.CGPA});
 
         if (!updatedStudent){
-        const error = new Error('Student not found');
-        error.statusCode = 404;
-        return next(error);
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Student not found'
+            });
         }
 
         res.status(200).json({
@@ -102,9 +131,10 @@ exports.deleteStudent = async(req,res,next) => {
     const student = await Student.findByIdAndDelete(req.params.ID)
 
     if (!student){
-        const error = new Error('Student not found');
-        error.statusCode = 404;
-        return next(error);
+        return res.status(404).json({
+                status: 'fail',
+                message: 'Student not found'
+            });
     }
 
     res.status(204).json({

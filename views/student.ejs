@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="/css/student.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Search</a>
+
+        <div id="profileArea">
+            <div class="loading">Loading student data...</div>
+        </div>
+
+        <p id="message" role="status"></p>
+    </div>
+
+    <script>
+        // Pass the student ID from the server to the client JS
+        window.STUDENT_ID = "<%= studentId %>";
+    </script>
+    <script src="/js/student.js"></script>
+</body>
+</html>
